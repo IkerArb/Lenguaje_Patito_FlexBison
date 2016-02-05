@@ -19,9 +19,9 @@ using namespace std;
 [/]                                                  {cout << "Found / : "<< yytext << endl;}
 [*]                                                  {cout << "Found * : "<< yytext << endl;}
 [-]                                                   {cout << "Found - : "<< yytext << endl;}
-[<>]                                                  {cout << "Found <> : "<< yytext << endl;}
-[<=]                                                  {cout << "Found <= : "<< yytext << endl;}
-[>=]                                                  {cout << "Found >= : "<< yytext << endl;}
+[<][>]                                                  {cout << "Found <> : "<< yytext << endl;}
+[<][=]                                                  {cout << "Found <= : "<< yytext << endl;}
+[>][=]                                                  {cout << "Found >= : "<< yytext << endl;}
 [=]                                                   {cout << "Found = : "<< yytext << endl;}
 [<]                                                   {cout << "Found < : "<< yytext << endl;}
 [>]                                                   {cout << "Found > : "<< yytext << endl;}
@@ -32,13 +32,13 @@ using namespace std;
 [}]                                                   {cout << "Found } : "<< yytext << endl;}
 [:]                                                   {cout << "Found : : "<< yytext << endl;}
 [ \n\t]                                             ;
-[A-Za-z](\_?([a-zA-Z]|[0-9]))*                      {cout << "Found an id: "<< yytext << endl; }
+[A-Za-z]([_]?([a-zA-Z]|[0-9]))*                      {cout << "Found an id: "<< yytext << endl; }
 [0-9]+                                              { cout << "Found a decimal integer: " << yytext << endl; }
 (0|1)+b                                             { cout << "Found a binary number: "<< yytext << endl;}
-([0-9])+([a-fA-F0-9])*(h|H)                         {cout << "Found a hexadecimal number: "<< yytext <<endl;}
-[0-9]+([eE](\+|\-)?|\.[0-9]+[eE](\+|\-)?|\.)[0-9]+  {cout << "Found a floating point constant: "<<yytext<<endl;}
-('[^\n]')                                           {cout << "Found a string: " << yytext << endl;}
-(\/\*(.|\n)*\*\/)                                   {cout << "Found a comment: "<< yytext <<endl;}
+[0-9]+[a-fA-F0-9]*[hH]                         {cout << "Found a hexadecimal number: "<< yytext <<endl;}
+[0-9]+([eE]([+]|[-])?|[.][0-9]+[eE]([+]|[-])?|[.])[0-9]+  {cout << "Found a floating point constant: "<<yytext<<endl;}
+['][^\n]*[']                                          {cout << "Found a string: " << yytext << endl;}
+[/][*](.|\n)*[*][/]                                   {cout << "Found a comment: "<< yytext <<endl;}
 %%
 int main(int, char**) {
 	// lex through the input:
