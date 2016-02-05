@@ -15,22 +15,22 @@ using namespace std;
 "WHILE"                                             {cout << "Found WHILE: "<< yytext << endl;}
 "READ"                                              {cout << "Found READ: "<< yytext << endl;}
 "WRITE"                                             {cout << "Found WRITE: "<< yytext << endl;}
-\+                                                  {cout << "Found + : "<< yytext << endl;}
-\/                                                  {cout << "Found / : "<< yytext << endl;}
-\*                                                  {cout << "Found * : "<< yytext << endl;}
--                                                   {cout << "Found - : "<< yytext << endl;}
-<>                                                  {cout << "Found <> : "<< yytext << endl;}
-<=                                                  {cout << "Found <= : "<< yytext << endl;}
->=                                                  {cout << "Found >= : "<< yytext << endl;}
-=                                                   {cout << "Found = : "<< yytext << endl;}
-<                                                   {cout << "Found < : "<< yytext << endl;}
->                                                   {cout << "Found > : "<< yytext << endl;}
-;                                                   {cout << "Found ; : "<< yytext << endl;}
-\(                                                  {cout << "Found ( : "<< yytext << endl;}
-\)                                                  {cout << "Found ) : "<< yytext << endl;}
-{                                                   {cout << "Found { : "<< yytext << endl;}
-}                                                   {cout << "Found } : "<< yytext << endl;}
-:                                                   {cout << "Found : : "<< yytext << endl;}
+[+]                                                  {cout << "Found + : "<< yytext << endl;}
+[/]                                                  {cout << "Found / : "<< yytext << endl;}
+[*]                                                  {cout << "Found * : "<< yytext << endl;}
+[-]                                                   {cout << "Found - : "<< yytext << endl;}
+[<>]                                                  {cout << "Found <> : "<< yytext << endl;}
+[<=]                                                  {cout << "Found <= : "<< yytext << endl;}
+[>=]                                                  {cout << "Found >= : "<< yytext << endl;}
+[=]                                                   {cout << "Found = : "<< yytext << endl;}
+[<]                                                   {cout << "Found < : "<< yytext << endl;}
+[>]                                                   {cout << "Found > : "<< yytext << endl;}
+[;]                                                   {cout << "Found ; : "<< yytext << endl;}
+[(]                                                 {cout << "Found ( : "<< yytext << endl;}
+[)]                                                  {cout << "Found ) : "<< yytext << endl;}
+[{]                                                   {cout << "Found { : "<< yytext << endl;}
+[}]                                                   {cout << "Found } : "<< yytext << endl;}
+[:]                                                   {cout << "Found : : "<< yytext << endl;}
 [ \n\t]                                             ;
 [A-Za-z](\_?([a-zA-Z]|[0-9]))*                      {cout << "Found an id: "<< yytext << endl; }
 [0-9]+                                              { cout << "Found a decimal integer: " << yytext << endl; }
