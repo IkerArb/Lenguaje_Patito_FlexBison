@@ -31,8 +31,8 @@ using namespace std;
 [{]                                                   {cout << "Found { : "<< yytext << endl;}
 [}]                                                   {cout << "Found } : "<< yytext << endl;}
 [:]                                                   {cout << "Found : : "<< yytext << endl;}
-['][^\n]*[']                                          {cout << "Found a string: " << yytext << endl;}
-[/][*](.|\n)*[*][/]                                   {cout << "Found a comment: "<< yytext <<endl;}
+\"[^\n"]*\"                                         {cout << "Found a string: " << yytext << endl;}
+\/\*([^*]|\n|[*][^\/])*\*\/                                 {cout << "Found a comment: "<< yytext <<endl;}
 [ \n\t]                                             ;
 [A-Za-z]([_]?([a-zA-Z]|[0-9]))*                      {cout << "Found an id: "<< yytext << endl; }
 [0-9]+                                              { cout << "Found a decimal integer: " << yytext << endl; }
