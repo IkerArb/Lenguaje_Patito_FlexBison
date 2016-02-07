@@ -53,11 +53,11 @@ void yyerror(const char *s);
 // something silly to echo to the screen what bison gets from flex.  We'll
 // make a real one shortly:
 programa:
-	PROG ID ';' v bloque { cout << "done with a snazzle file!" << endl; }
+	PROG ID ';' v bloque { cout << "done with the file!" << endl; }
 	;
 v:
   %empty
-  | vars
+  | vars {cout << "declared variable"<<endl;}
   ;
 
 vars:
@@ -88,27 +88,22 @@ tipo:
   ;
 
 bloque:
-  '{' d '}'
+  '{' d '}' {cout << "bloque codificado exitosamente"<<endl;}
   ;
 
 d:
-  %empty
-  | estatuto e
-  ;
-
-e:
-  %empty
-  | d
+  %empty {cout << "se acabó el bloque"<<endl;}
+  | estatuto d {cout << "se manda a llamar a estatuto"<<endl;}
   ;
 
 estatuto:
-  asignacion
+  asignacion {cout << "estatuto de asignacion"<< endl;}
   | condicion
   | escritura
   ;
 
 asignacion:
-  ID '=' expresion
+  ID '=' expresion ';'{cout<< "se asignó la variable "<<$1<<endl;}
   ;
 
 expresion:
@@ -148,7 +143,7 @@ k:
 
 factor:
   '(' expresion ')'
-  | m varcte
+  | m varcte {cout << "factor reconocido correctamente"<<endl;}
   ;
 
 m:
@@ -177,9 +172,9 @@ l:
   ;
 
 varcte:
-  ID
-  | CTEED
-  | CTEF
+  ID {cout << "se encontró un id "<<$1<<endl;}
+  | CTEED {cout << "se encontró una variable decimal "<<$1<<endl;}
+  | CTEF {cout << "se encontró una variable flotante "<<$1<<endl;}
 
 %%
 

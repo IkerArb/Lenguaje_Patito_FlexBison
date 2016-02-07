@@ -1,4 +1,5 @@
-12.5
-12
-0ah
-01010101b
+PROG prueba_1;
+VAR nombre69 : INT;
+{
+  nombre69 = 69.34;
+}
