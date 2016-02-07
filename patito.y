@@ -34,6 +34,9 @@ void yyerror(const char *s);
 %token READ
 %token PRINT
 %token VAR
+%token NOTEQ
+%token LTEQ
+%token GTEQ
 
 // define the "terminal symbol" token types I'm going to use (in CAPS
 // by convention), and associate each with a field of the union:
@@ -116,7 +119,7 @@ i:
   %empty
   | '>' exp
   | '<' exp
-  | '<>' exp
+  | NOTEQ exp
   ;
 
 escritura:
@@ -176,7 +179,7 @@ l:
 varcte:
   ID
   | CTEED
-  | CTEEF
+  | CTEF
 
 %%
 

@@ -21,9 +21,9 @@ using namespace std;
 [/]                                                  {return '/';}
 [*]                                                  {return '*';}
 [-]                                                   {return '-';}
-[<][>]                                                  {return yytext;}
-[<][=]                                                  {return yytext;}
-[>][=]                                                  {return yytext;}
+[<][>]                                                  {return NOTEQ;}
+[<][=]                                                  {return LTEQ;}
+[>][=]                                                  {return GTEQ;}
 [=]                                                   {return '=';}
 [<]                                                   {return '<';}
 [>]                                                   {return '>';}
